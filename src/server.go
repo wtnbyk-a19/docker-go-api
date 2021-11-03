@@ -8,9 +8,9 @@ import (
 )
 
 func init() {
-	error := godotenv.Load("/go/api/.env")
-	if error != nil {
-		logrus.Fatal(error)
+	err := godotenv.Load("/go/api/.env")
+	if err != nil {
+		logrus.Fatal(err)
 	}
 
 	logrus.SetLevel(logrus.DebugLevel)
@@ -18,11 +18,11 @@ func init() {
 }
 
 func main() {
-	echo := echo.New()
+	e := echo.New()
 
 	// Routes
-	router.RouterInit(echo)
+	router.RouterInit(e)
 
 	// Start server
-	echo.Logger.Fatal(echo.Start(":3000"))
+	echo.Logger.Fatal(e.Start(":3000"))
 }
