@@ -24,5 +24,5 @@ func main() {
 	router.RouterInit(e)
 
 	// Start server
-	echo.Logger.Fatal(e.Start(":3000"))
+	e.Logger.Fatal(e.Start(":3000"))
 }
